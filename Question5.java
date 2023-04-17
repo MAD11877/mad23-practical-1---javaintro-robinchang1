@@ -28,5 +28,31 @@ public class Question5
      
     Scanner in = new Scanner(System.in);
     
+    int number = in.nextInt();
+
+    int[] numbers = new int[number];
+    
+    for (int i = 0; i < number; i ++) {
+      numbers[i] = in.nextInt();
+    }
+
+    int [] f = new int[number];
+    for (int i = 0; i < number; i ++) {
+      for (int j = 0; j < number; j ++) {
+        if (numbers[i] == numbers[j]) {
+          f[i] += 1;
+        }
+      }
+    }
+
+    int highest = -1;
+    for (int i = 0; i < number; i ++) {
+      if (highest == -1 || f[i] > f[highest]) {
+        highest = i;
+      }
+    }
+
+    System.out.println(numbers[highest]);
+    
   }
 }
